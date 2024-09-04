@@ -1,0 +1,345 @@
+/* Estilos globales */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+    background-color: #55C9F4; /* Color de fondo de la página */
+}
+
+/* Estilos del logotipo */
+.logo img {
+    width: 50px;
+    height: auto;
+    display: block;
+    display: flex;
+    align-items: center;
+    margin-left: 20px; /* Ajusta este valor para separar el logo del borde izquierdo */
+}
+
+/* Estilos para el encabezado y la navegación */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #004f9e00; /* Color de fondo del encabezado */
+    position: relative;
+    z-index: 999;
+    height: auto; /* Ajusta la altura si es necesario */
+    overflow: visible; /* Asegúrate de que no haya recortes de contenido */
+}
+
+/* Estilos del menú de navegación */
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.main-nav ul li {
+    margin-left: 20px;
+    position: relative; /* Necesario para que el submenú se posicione correctamente */
+}
+
+/* Estilos de los enlaces de navegación */
+.main-nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    color: #ffdd57; /* Color de los enlaces al pasar el ratón */
+}
+
+/* Estilos del menú hamburguesa para pantallas pequeñas */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    height: 3px;
+    width: 25px;
+    background-color: #fff;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+/* Encabezado fijo (sticky) */
+.sticky-header {
+    background-color: #00509e;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sticky-header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* Estilos del submenú desplegable */
+.sticky-header nav ul li ul {
+    display: none;
+    position: absolute; /* Cambiado a absolute para superponerse */
+    background-color: #00509e;
+    padding: 10px;
+    list-style: none;
+    margin: 0;
+    border-radius: 5px;
+    top: 100%; /* Posición debajo del elemento padre */
+    left: 50%; /* Centrado con respecto al elemento padre */
+    transform: translateX(-50%); /* Ajuste para centrar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    white-space: nowrap; /* Evita que el submenú se divida en varias líneas */
+    width: auto; /* Ajusta automáticamente el ancho del submenú */
+    min-width: 200px; /* Define un ancho mínimo para que el submenú no sea demasiado estrecho */
+}
+
+.sticky-header nav ul li:hover ul {
+    display: block; /* Mostrar submenú al pasar el ratón */
+}
+
+.sticky-header nav ul li ul li {
+    margin: 0;
+}
+
+.sticky-header nav ul li ul li a {
+    color: #fff;
+    padding: 5px 10px;
+    display: block;
+    text-decoration: none;
+}
+
+.sticky-header nav ul li ul li a:hover {
+    background-color: #007bff;
+    border-radius: 3px;
+}
+
+/* Estilos de la sección hero */
+.hero-section {
+    position: relative;
+    display: flex;
+    align-items: center; /* Alinea verticalmente el contenido al centro */
+    justify-content: center; /* Centra horizontalmente el contenido */
+    min-height: 50vh;
+    padding: 0; /* Eliminamos el padding aquí para que el contenido no se desplace hacia abajo */
+    overflow: hidden;
+    background-color: #004f9e7e;
+    color: #fff;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
+    background-position: center; /* Centra la imagen */
+    opacity: 1; /* Comienza con la imagen invisible */
+    }
+
+.hero-image.active {
+    opacity: 0.9; /* Cuando se aplica la clase 'active', la imagen se vuelve visible */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: rgba(255, 255, 255, 1); /* Opacidad máxima para el texto */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0); /* Fondo semi-transparente para mejorar el contraste */
+    border-radius: 5px;
+    max-width: 80%; /* Ajusta el ancho máximo del contenido para que no ocupe toda la pantalla */
+    margin: 0 auto; /* Centra horizontalmente el contenido */
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #ffdd57; /* Color del botón CTA */
+    color: #00509e;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+}
+
+/* Ajuste adicional para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .hero-section {
+        padding: 20px 10px;
+    }
+
+    .hero-content {
+        padding: 15px; /* Ajusta el padding para pantallas pequeñas */
+        max-width: 90%; /* Aumenta el ancho máximo en pantallas pequeñas */
+    }
+
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+    }
+}
+
+/* Estilos para la sección de servicios */
+.services {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 20px;
+    background-color: #f4f4f4; /* Color de fondo de la sección */
+}
+
+.service-card {
+    background-color: #fff; /* Color de fondo de la tarjeta */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.service-card h3 {
+    margin-bottom: 10px;
+    color: #00509e; /* Color del texto */
+}
+
+/* Estilos para la sección de testimonios */
+.testimonials {
+    background-color: #55C9F4; /* Color de fondo de la sección */
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.testimonial-card {
+    background-color: #00509e; /* Color de fondo de la tarjeta */
+    color: #fff; /* Color del texto */
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.testimonial-card h4 {
+    margin-top: 10px;
+    color: #ffdd57; /* Color del nombre del cliente */
+}
+
+/* Estilos para la sección del blog */
+.blog {
+    padding: 40px 20px;
+    background-color: #f4f4f4; /* Color de fondo de la sección */
+}
+
+.blog h2 {
+    text-align: center;
+    color: #00509e; /* Color del título de la sección */
+    margin-bottom: 20px;
+}
+
+.blog-post {
+    background-color: #fff; /* Color de fondo de la tarjeta */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.blog-post h3 {
+    margin-bottom: 10px;
+    color: #00509e; /* Color del título del post */
+}
+
+/* Estilos para el pie de página */
+footer {
+    background-color: #00509e; /* Color de fondo del pie de página */
+    color: #fff; /* Color del texto */
+    text-align: center;
+    padding: 20px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Media Queries para adaptar el diseño a pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .main-nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .main-nav ul li {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .main-nav ul li ul {
+        position: relative;
+        width: 100%;
+        text-align: left;
+    }
+
+    .main-nav ul li ul li {
+        width: 100%;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .main-nav.active {
+        display: flex;
+    }
+}
