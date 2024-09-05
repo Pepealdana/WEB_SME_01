@@ -13,22 +13,88 @@ body {
     width: 50px;
     height: auto;
     display: block;
+    margin-left: 20px; /* Ajusta este valor para separar el logo del borde izquierdo */
+}
+
+/* Estilos de la barra superior */
+.top-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #55C9F4; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 20px;
+    align-items: center;
+    box-sizing: border-box;
+    height: 40px;
+}
+
+.topbar-content {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    color: white;
+}
+
+.top-bar .social-media {
     display: flex;
     align-items: center;
-    margin-left: 20px; /* Ajusta este valor para separar el logo del borde izquierdo */
+}
+
+.top-bar .social-media span {
+    margin-right: 10px;
+    color: #fff;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+}
+
+.top-bar .social-media a {
+    margin-right: 10px;
+}
+
+.top-bar .social-media img {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+/* Imagen a la derecha */
+.top-bar .topbar-link {
+    display: flex;
+    align-items: center;
+}
+
+.top-bar .topbar-image {
+    width: 100px;
+    height: auto;
 }
 
 /* Estilos para el encabezado y la navegación */
 header {
     display: flex;
+    position: fixed;
+    top: 40px; /* Ajuste para que el header esté debajo del top bar */
+    width: 100%;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
-    background-color: #004f9e00; /* Color de fondo del encabezado */
-    position: relative;
+    padding: 10px 30px;
+    background-color: #01142d;
     z-index: 999;
-    height: auto; /* Ajusta la altura si es necesario */
-    overflow: visible; /* Asegúrate de que no haya recortes de contenido */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+body {
+    margin-top: 80px;
 }
 
 /* Estilos del menú de navegación */
@@ -37,309 +103,233 @@ header {
     margin: 0;
     padding: 0;
     display: flex;
+    align-items: center;
+    padding-right: 50px;
 }
 
 .main-nav ul li {
-    margin-left: 20px;
-    position: relative; /* Necesario para que el submenú se posicione correctamente */
+    margin-left: 50px;
+    position: relative;
 }
 
-/* Estilos de los enlaces de navegación */
 .main-nav ul li a {
     text-decoration: none;
     color: #fff;
     font-size: 16px;
-    padding: 5px 10px;
-    transition: color 0.3s ease;
+    padding: 10px;
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 .main-nav ul li a:hover {
-    color: #ffdd57; /* Color de los enlaces al pasar el ratón */
+    background-color: #ffdd57;
+    color: #01142d;
+    border-radius: 5px;
 }
 
-/* Estilos del menú hamburguesa para pantallas pequeñas */
+/* Estilos del submenú desplegable */
+.main-nav ul li ul.submenu {
+    display: none;
+    position: absolute;
+    top: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #01142d;
+    padding: 0;
+    list-style: none;
+    border-radius: 5px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 998;
+    text-align: center;
+}
+
+.main-nav ul li:hover ul.submenu {
+    display: block;
+}
+
+.main-nav ul li ul.submenu li {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.main-nav ul li ul.submenu li a {
+    color: #fff;
+    font-size: 14px;
+    padding: 5px 12px;
+    display: block;
+}
+
+.main-nav ul li ul.submenu li a:hover {
+    background-color: #ffdd57;
+    color: #01142d;
+}
+
+/* Estilos del menú responsivo (hamburguesa) */
 .menu-toggle {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    z-index: 1001;
 }
 
 .menu-toggle span {
-    height: 3px;
-    width: 25px;
     background-color: #fff;
-    margin: 4px 0;
+    height: 2px;
+    width: 25px;
+    margin: 3px 0;
     transition: all 0.3s ease;
 }
 
-/* Encabezado fijo (sticky) */
-.sticky-header {
-    background-color: #00509e;
-    padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Estilos responsivos para pantallas pequeñas */
+@media (max-width: 768px) 
+{
+    .menu-toggle {
+        display: flex;
+    }
+
+    .main-nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #01142d;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 997;
+    }
+
+    .main-nav.open ul {
+        display: flex;
+    }
+
+    .main-nav ul li {
+        margin: 0;
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .main-nav ul li ul.submenu {
+        position: relative;
+        left: 0;
+        transform: none;
+    }
 }
 
-.sticky-header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 20px;
-}
-
-/* Estilos del submenú desplegable */
-.sticky-header nav ul li ul {
-    display: none;
-    position: absolute; /* Cambiado a absolute para superponerse */
-    background-color: #00509e;
-    padding: 10px;
-    list-style: none;
-    margin: 0;
+/* Animaciones para un toque dinámico */
+.main-nav ul li a:hover {
+    background-color: #ffdd57;
+    color: #01142d;
     border-radius: 5px;
-    top: 100%; /* Posición debajo del elemento padre */
-    left: 50%; /* Centrado con respecto al elemento padre */
-    transform: translateX(-50%); /* Ajuste para centrar */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    white-space: nowrap; /* Evita que el submenú se divida en varias líneas */
-    width: auto; /* Ajusta automáticamente el ancho del submenú */
-    min-width: 200px; /* Define un ancho mínimo para que el submenú no sea demasiado estrecho */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.sticky-header nav ul li:hover ul {
-    display: block; /* Mostrar submenú al pasar el ratón */
+.main-nav ul li ul.submenu li a:hover {
+    background-color: #ffdd57;
+    color: #01142d;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.sticky-header nav ul li ul li {
-    margin: 0;
-}
-
-.sticky-header nav ul li ul li a {
-    color: #fff;
-    padding: 5px 10px;
-    display: block;
-    text-decoration: none;
-}
-
-.sticky-header nav ul li ul li a:hover {
-    background-color: #007bff;
-    border-radius: 3px;
+.main-nav ul li:last-child {
+    margin-right: 40px;
 }
 
 /* Estilos de la sección hero */
 .hero-section {
     position: relative;
+    height: 85vh;/* Ocupa toda la altura de la ventana */
+    background: #f3f4f600;
+    color: #ffffff;
     display: flex;
-    align-items: center; /* Alinea verticalmente el contenido al centro */
-    justify-content: center; /* Centra horizontalmente el contenido */
-    min-height: 50vh;
-    padding: 0; /* Eliminamos el padding aquí para que el contenido no se desplace hacia abajo */
-    overflow: hidden;
-    background-color: #004f9e7e;
-    color: #fff;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    box-sizing: border-box;
 }
 
-.hero-image {
+.hero-section .hero-image {
     position: absolute;
     top: 0;
+    bottom: 20px; /* Ajusta el valor según sea necesario para bajar el contenido */
     left: 0;
     width: 100%;
     height: 100%;
-    background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
-    background-position: center; /* Centra la imagen */
-    opacity: 1; /* Comienza con la imagen invisible */
-    }
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
 
-.hero-image.active {
-    opacity: 0.9; /* Cuando se aplica la clase 'active', la imagen se vuelve visible */
+.hero-image {
+    width: 100%; /* Asegura que la imagen ocupe todo el ancho de la sección */
+    height: auto; /* Mantiene la relación de aspecto */
+    object-fit: cover; /* Asegura que la imagen se ajuste sin distorsión */
+}
+.hero-section .hero-image.active {
+    opacity: 1;
 }
 
 .hero-content {
-    position: relative;
-    z-index: 2;
-    color: rgba(255, 255, 255, 1); /* Opacidad máxima para el texto */
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0); /* Fondo semi-transparente para mejorar el contraste */
-    border-radius: 5px;
-    max-width: 80%; /* Ajusta el ancho máximo del contenido para que no ocupe toda la pantalla */
-    margin: 0 auto; /* Centra horizontalmente el contenido */
+    position: absolute;
+    bottom: 10px; /* Ajusta el valor según sea necesario para bajar el contenido */
+    left: 50%;
+    transform: translateX(-50%); /* Centra horizontalmente el contenido */
+    color: #fff;
+    text-align: center;
+    z-index: 1; /* Asegura que el texto y botón se vean sobre la imagen */
+    max-width: 100%;
 }
 
-.hero-section h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+.hero-content h1 {
+    font-size: 2.5rem; /* tamaño del h1 */
+    color: #fff;
+    line-height: 1.0;  /* Ajustar el interlineado */
+    margin-bottom: 10px; /* margen inferior para acercar la siguiente frase */
+    white-space: nowrap; /* Evita el salto de línea */
+    overflow: hidden; /* Evita el desbordamiento si el texto es muy largo */
+    max-width: 100%; /* Asegura que el contenedor permita una línea más larga */
 }
 
-.hero-section p {
+.hero-content p {
+    color: #fff;
     font-size: 1.2rem;
-    margin-bottom: 20px;
+    line-height: 1.0; /* Reducir el interlineado para la segunda frase */
+    margin-bottom: 20px; /* Reducir la distancia entre la frase y el botón */
 }
 
 .cta-button {
-    text-decoration: none;
+    background-color: #ffdd57;
+    color: #01142d;
     padding: 10px 20px;
-    background-color: #ffdd57; /* Color del botón CTA */
-    color: #00509e;
     border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 5px; /* Aumentar la proximidad del botón a las frases */
     transition: background-color 0.3s ease;
 }
 
 .cta-button:hover {
-    background-color: #0056b3;
+    background-color: #ffcc00;
 }
 
-/* Ajuste adicional para pantallas pequeñas */
-@media screen and (max-width: 768px) {
-    .hero-section {
-        padding: 20px 10px;
-    }
 
-    .hero-content {
-        padding: 15px; /* Ajusta el padding para pantallas pequeñas */
-        max-width: 90%; /* Aumenta el ancho máximo en pantallas pequeñas */
-    }
-
-    .hero-section h1 {
-        font-size: 2rem;
-    }
-
-    .hero-section p {
-        font-size: 1rem;
-    }
+/* Media query para pantallas medianas (tablets)*/
+@media (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 2rem; /* Reducir tamaño en pantallas medianas */
+        white-space: normal; /* Permite saltos de línea */
+        text-overflow: clip; /* Permite que el texto se divida */
+        line-height: 1.3;
 }
 
-/* Estilos para la sección de servicios */
-.services {
-    display: flex;
-    justify-content: space-around;
-    padding: 40px 20px;
-    background-color: #f4f4f4; /* Color de fondo de la sección */
-}
-
-.service-card {
-    background-color: #fff; /* Color de fondo de la tarjeta */
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    text-align: center;
-}
-
-.service-card h3 {
-    margin-bottom: 10px;
-    color: #00509e; /* Color del texto */
-}
-
-/* Estilos para la sección de testimonios */
-.testimonials {
-    background-color: #55C9F4; /* Color de fondo de la sección */
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.testimonial-card {
-    background-color: #00509e; /* Color de fondo de la tarjeta */
-    color: #fff; /* Color del texto */
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
-
-.testimonial-card h4 {
-    margin-top: 10px;
-    color: #ffdd57; /* Color del nombre del cliente */
-}
-
-/* Estilos para la sección del blog */
-.blog {
-    padding: 40px 20px;
-    background-color: #f4f4f4; /* Color de fondo de la sección */
-}
-
-.blog h2 {
-    text-align: center;
-    color: #00509e; /* Color del título de la sección */
-    margin-bottom: 20px;
-}
-
-.blog-post {
-    background-color: #fff; /* Color de fondo de la tarjeta */
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
-
-.blog-post h3 {
-    margin-bottom: 10px;
-    color: #00509e; /* Color del título del post */
-}
-
-/* Estilos para el pie de página */
-footer {
-    background-color: #00509e; /* Color de fondo del pie de página */
-    color: #fff; /* Color del texto */
-    text-align: center;
-    padding: 20px;
-}
-
-footer p {
-    margin: 0;
-}
-
-/* Media Queries para adaptar el diseño a pantallas pequeñas */
-@media screen and (max-width: 768px) {
-    .main-nav {
-        display: none;
-        flex-direction: column;
-        width: 100%;
+/* Media query para pantallas muy pequeñas (teléfonos móviles) */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.5rem; /* Reducir aún más el tamaño en móviles */
+        white-space: normal; /* Permite saltos de línea en móviles */
+        text-overflow: clip; 
+        line-height: 1.4; /* Aumenta el espacio entre líneas */
     }
-
-    .main-nav ul {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-    .main-nav ul li {
-        margin-left: 0;
-        width: 100%;
-        text-align: center;
-    }
-
-    .main-nav ul li ul {
-        position: relative;
-        width: 100%;
-        text-align: left;
-    }
-
-    .main-nav ul li ul li {
-        width: 100%;
-    }
-
-    .menu-toggle {
-        display: flex;
-    }
-
-    .menu-toggle.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .menu-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .menu-toggle.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
-    }
-
-    .main-nav.active {
-        display: flex;
-    }
+}
 }
