@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="img/escudo-sme.ico" type="image/x-icon">
     <link rel="manifest" href="/manifest.json">
-
 </head>
 
 <script>
@@ -27,47 +26,60 @@
 </script>
 
 <body>
+    <!-- Barra superior con enlaces a redes sociales -->
+    <div class="top-bar">
+        <div class="social-media">
+            <span>Síguenos:</span>
+            <a href="https://www.facebook.com/colegiosantamariadelaesperanza" target="_blank">
+                <img src="img/facebook-icon.png" alt="Facebook">
+            </a>
+            <a href="https://www.youtube.com/channel/UCY0figVslii6xSoJrAxj-Cg" target="_blank">
+                <img src="img/youtube-icon.png" alt="Youtube">
+            </a>
+            <a href="https://www.instagram.com/colegio_sme/?hl=es-la" target="_blank">
+                <img src="img/instagram-icon.png" alt="Instagram">
+            </a>
+        </div>
+          <!-- Imagen enlazada al lado derecho -->
+        <a href="https://colsme.phidias.co/" class="topbar-link" target="_blank">
+            <img src="img/boton-phidias.png" alt="Nuevo sitio" class="topbar-image">
+        </a>
+    </div>
 
     <!-- Encabezado fijo con logotipo y navegación -->
-    <header class="sticky-header">
+    <header>
         <!-- Logotipo de la institución -->
-        <a href="#" class="logo">
+        <div class="logo">
             <img src="img/escudosme.png" alt="Logo de la Institución">
-        </a>
+        </div>
 
-
-        
         <!-- Menú de navegación principal -->
         <nav class="main-nav">
             <ul>
                 <li><a href="#">Inicio</a></li>
                 <li><a href="#nosotros">Acerca de Nosotros</a>
-                    <ul>
+                    <ul class="submenu">
                         <li><a href="#">Biografía</a></li>
                         <li><a href="#">Beatificación</a></li>
                         <li><a href="#">Espiritualidad</a></li>
-                        <li><a href="#">Pensamientos Madre Clara</a></li>
+                        <li><a href="#">Pensamientos</a></li>
                     </ul>
                 </li>
-                <!-- Elemento de menú con submenú desplegable -->
-                <li>
-                    <a href="#beataclara">Beata Clara Fey</a>
-                    <ul>
+                <li><a href="#beataclara">Beata Clara Fey</a>
+                    <ul class="submenu">
                         <li><a href="#">Biografía</a></li>
                         <li><a href="#">Beatificación</a></li>
                         <li><a href="#">Espiritualidad</a></li>
-                        <li><a href="#">Pensamientos Madre Clara</a></li>
+                        <li><a href="#">Pensamientos</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#modeloped">Modelo Pedagógico</a>
-                    
                 </li>
             </ul>
         </nav>
-
         <!-- Botón de menú hamburguesa para pantallas pequeñas -->
-        <div class="menu-toggle" id="menu-toggle">
+        <div id="menu-toggle" class="menu-toggle">
             <span></span>
             <span></span>
             <span></span>
@@ -82,9 +94,9 @@
             <a href="#about" class="cta-button">Conócenos Más</a>
         </div>
         <!-- Imagen de fondo en la sección hero -->
-        <img src="img/colegio1.JPG" alt="Vista aérea del colegio" class="hero-image">
+        <img src="img/colegio1.JPG" alt="Vista aérea del colegio" class="hero-image active">
     </section>
-    
+
     <!-- Sección de servicios ofrecidos por la institución -->
     <section id="services" class="services">
         <div class="service-card">
