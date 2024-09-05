@@ -1,23 +1,26 @@
-// scripts.js
+document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.getElementById('menu-toggle');
+    const nav = document.querySelector('.main-nav ul');
+    const submenuItems = document.querySelectorAll('.submenu');
 
-// Ejecutar el código después de que el DOM esté completamente cargado
-document.addEventListener("DOMContentLoaded", function() {
-    // Obtener referencias al botón de menú hamburguesa y al menú de navegación principal
-    const menuToggle = document.getElementById("menu-toggle");
-    const mainNav = document.querySelector(".main-nav");
-
-    // Añadir un listener para alternar la visibilidad del menú al hacer clic en el botón de menú
-    menuToggle.addEventListener("click", function() {
-        menuToggle.classList.toggle("active");
-        mainNav.classList.toggle("active");
+    // Toggle del menú hamburguesa
+    menuToggle.addEventListener('click', function () {
+        nav.classList.toggle('active');
+        menuToggle.classList.toggle('open'); // Cambia la apariencia del botón hamburguesa
     });
 
-    // Cerrar el menú si se hace clic fuera de él
-    document.addEventListener("click", function(event) {
-        // Verificar si el clic ocurrió fuera del botón de menú y del menú de navegación
-        if (!menuToggle.contains(event.target) && !mainNav.contains(event.target)) {
-            menuToggle.classList.remove("active");
-            mainNav.classList.remove("active");
+    // Cerrar el menú al hacer clic en cualquier lugar fuera del menú
+    document.addEventListener('click', function (e) {
+        if (!menuToggle.contains(e.target) && !nav.contains(e.target)) {
+            nav.classList.remove('active');
+            menuToggle.classList.remove('open');
         }
+    });
+
+    // Asegurarse de que los submenús no queden abiertos al cerrar el menú principal en móviles
+    submenuItems.forEach(item => {
+        item.addEventListener('click', function (e) {
+            e.stopPropagation(); // Evitar que el evento burbujee hacia el menú principal
+        });
     });
 });
