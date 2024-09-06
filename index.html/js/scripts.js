@@ -24,3 +24,40 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+// sección información
+document.addEventListener('DOMContentLoaded', () => {
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slider-item');
+    const totalSlides = slides.length;
+    
+    function showSlide(index) {
+        // Ajustamos el índice al rango adecuado
+        if (index >= totalSlides) {
+            currentSlide = 0;
+        } else if (index < 0) {
+            currentSlide = totalSlides - 1;
+        } else {
+            currentSlide = index;
+        }
+    
+        // Ocultamos todos los slides
+        slides.forEach((slide) => {
+            slide.style.display = 'none';
+        });
+    
+        // Mostramos solo el slide actual
+        slides[currentSlide].style.display = 'flex';
+    }
+    
+    // Agregamos los eventos de clic para las flechas
+    document.querySelector('.slider-prev').addEventListener('click', () => {
+        showSlide(currentSlide - 1);
+    });
+    
+    document.querySelector('.slider-next').addEventListener('click', () => {
+        showSlide(currentSlide + 1);
+    });
+    
+    // Mostrar el primer slide al cargar la página
+    showSlide(currentSlide);
+});
