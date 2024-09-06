@@ -333,3 +333,80 @@ body {
     }
 }
 }
+
+/* Estilos para la sección de información */
+#info-slider {
+    background-color: #f4f4f4;
+    padding: 40px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-slider-container {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1200px; /* Mantiene el ancho máximo */
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-item {
+    display: flex;
+    align-items: center;
+    width: 100%; /* Solo un slide a la vez */
+    max-width: 100%;
+    transition: transform 0.5s ease;
+    position: relative;
+    justify-content: center; /* Centrar contenido */
+}
+
+.slider-image {
+    width: 45%; /* La imagen ocupa un 45% del espacio */
+    height: auto; 
+    max-height: 400px; /* Mantiene el tamaño de la imagen */
+    object-fit: cover;
+}
+
+.slider-text {
+    padding: 20px;
+    background-color: #B8D9F2; /* Color azul claro */
+    margin-left: 20px;
+    flex-grow: 1; /* Expande la caja de texto */
+    max-width: 50%; /* La caja de texto ocupará un 50% */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Alinea el texto verticalmente */
+}
+
+.slider-text h2 {
+    margin-top: 0;
+    color: #01142d;
+    font-size: 1.8em; /* Ajustar el tamaño del título */
+}
+
+.slider-text p {
+    margin-bottom: 0;
+    color: #333;
+    font-size: 1.2em; /* Ajustar el tamaño del párrafo */
+}
+
+/* Estilos para las flechas de navegación */
+.slider-navigation {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.slider-navigation span {
+    font-size: 24px;
+    cursor: pointer;
+    user-select: none;
+}
