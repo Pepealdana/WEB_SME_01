@@ -50,7 +50,7 @@
     <header>
         <!-- Logotipo de la institución -->
         <div class="logo">
-            <img src="img/escudosme.png" alt="Logo de la Institución">
+            <img src="img/logosmeytexto.png" alt="Logo de la Institución">
         </div>
 
         <!-- Menú de navegación principal -->
@@ -59,10 +59,10 @@
                 <li><a href="#">Inicio</a></li>
                 <li><a href="#nosotros">Acerca de Nosotros</a>
                     <ul class="submenu">
-                        <li><a href="#">Biografía</a></li>
-                        <li><a href="#">Beatificación</a></li>
-                        <li><a href="#">Espiritualidad</a></li>
-                        <li><a href="#">Pensamientos</a></li>
+                        <li><a href="#">Comunidad PIJ</a></li>
+                        <li><a href="#">Direccionamiento</a></li>
+                        <li><a href="#">Colegio SME</a></li>
+                        <li><a href="#">Nuestro Equipo</a></li>
                     </ul>
                 </li>
                 <li><a href="#beataclara">Beata Clara Fey</a>
@@ -91,73 +91,48 @@
         <div class="hero-content">
             <h1>Bienvenido al Colegio Santa María de la Esperanza</h1>
             <p>"Somos Luz y Esperanza para el mundo de hoy."</p>
-            <a href="#about" class="cta-button">Conócenos Más</a>
+            <a href="#about" class="cta-button">Conoce Más</a>
         </div>
         <!-- Imagen de fondo en la sección hero -->
         <img src="img/colegio1.JPG" alt="Vista aérea del colegio" class="hero-image active">
     </section>
 
 <!-- Sección de la organización -->
-<section id="info-slider">
-    <div class="info-slider-container">
-        <div class="slider-item">
-            <img src="img/plazoleta.jpg" alt="Nuestra Historia" class="slider-image">
-            <div class="slider-text">
-                <h2>Nuestra Historia</h2>
-                <p>El Lunes 8 de Febrero de 1.988 a las 7:30 a.m. se comenzaron las clases del nuevo Colegio SANTA MARIA DE LA ESPERANZA fundado a los 50 años de haberse iniciado  la obra apostólica de las Hermanas del Niño Jesús Pobre en Colombia.
+<section class="info-slider">
+    <div class="slider-container">
+      <div class="slider-item active">
+        <img src="img/plazoleta.jpg" alt="Nuestra Historia">
+        <div class="info-box">
+          <h2>Nuestra Historia</h2>
+          <p>El Lunes 8 de Febrero de 1.988 a las 7:30 a.m. se comenzaron las clases del nuevo Colegio SANTA MARIA DE LA ESPERANZA fundado a los 50 años de haberse iniciado  la obra apostólica de las Hermanas del Niño Jesús Pobre en Colombia.
 
-                    Las hermanas con las cuales se comenzó la obra fueron:  La Hna. Anna Gertrud PIJ, la Hna. María del Rocío PIJ y la Hna. María Helena Henao PIJ.  El Colegio se inició con 38 alumnas en 6° y 10 en transición.
-                                        
-                    Durante 1.988 se iniciaron los estudios para la construcción de la sede del Colegio.   La construcción empezó en Octubre y en Febrero de 1.989 se dio comienzo a las  labores escolares en el nuevo edificio sin terminar. Se inició con mucho entusiasmo, alegría y gran ESPERANZA..</p>
-            </div>
+            Las hermanas con las cuales se comenzó la obra fueron:  La Hna. Anna Gertrud PIJ, la Hna. María del Rocío PIJ y la Hna. María Helena Henao PIJ.  El Colegio se inició con 38 alumnas en 6° y 10 en transición.
+                       
+            La construcción empezó en Octubre de 1988 y en Febrero de 1.989 se dio comienzo a las  labores escolares en el nuevo edificio sin terminar. Se inició con mucho entusiasmo, alegría y gran ESPERANZA.</p>
         </div>
-        <div class="slider-item">
-            <img src="ruta/a/tu/imagen2.jpg" alt="Misión" class="slider-image">
-            <div class="slider-text">
-                <h2>Misión</h2>
-                <p>Texto sobre la misión de la organización...</p>
-            </div>
+      </div>
+      <div class="slider-item">
+        <img src="img/estudiante.jpg" alt="Congregación">
+        <div class="info-box">
+          <h2>Innovación Pedagógica</h2>
+          <p>La comunidad de las Hermanas del Niño Jesús Pobre, en pro del mejoramiento continuo en la calidad de la educación, viene implementando su modelo pedagógico basado en el trabajo cooperativo, teniendo encuenta las etapas de desarrollo,
+            para la obtención de un aprendizaje significativo; utilizando herramientas innovadoras como la plataforma Progrentis.
+          </p>
         </div>
-        <div class="slider-item">
-            <img src="ruta/a/tu/imagen3.jpg" alt="Visión" class="slider-image">
-            <div class="slider-text">
-                <h2>Visión</h2>
-                <p>Texto sobre la visión de la organización...</p>
-            </div>
+      </div>
+      <div class="slider-item">
+        <img src="img/hermanas.jpg" alt="Formación Integral">
+        <div class="info-box">
+          <h2>Formación Integral</h2>
+          <p>En los colegios PIJ entendemos la formación integral como la educación que  promueve el desarrollo de la persona en sus dimensiones física, afectiva, cognitiva,  espiritual e interpersonal, para su realización personal dentro de la realidad y el  entorno en el cual interactúa.</p>
         </div>
+      </div>
     </div>
+    <button class="prev" onclick="prevSlide()">&#10094;</button>
+    <button class="next" onclick="nextSlide()">&#10095;</button>
+  </section>
+  
 
-    <div class="slider-navigation">
-        <span class="prev">&#10094;</span>
-        <span class="next">&#10095;</span>
-    </div>
-</section>
-
-
-    <!-- Sección de testimonios de clientes -->
-    <section class="testimonials">
-        <div class="testimonial-card">
-            <p>"Excelente servicio, muy profesionales y atentos a nuestras necesidades."</p>
-            <h4>Cliente Satisfecho</h4>
-        </div>
-        <div class="testimonial-card">
-            <p>"La mejor experiencia, el equipo fue muy eficiente y cumplió con todo lo prometido."</p>
-            <h4>Otro Cliente Satisfecho</h4>
-        </div>
-    </section>
-
-    <!-- Sección del blog para últimas noticias o artículos -->
-    <section class="blog">
-        <h2>Últimas Noticias</h2>
-        <div class="blog-post">
-            <h3>Nuestra Nueva Oficina</h3>
-            <p>Nos complace anunciar la apertura de nuestra nueva oficina en el centro de la ciudad.</p>
-        </div>
-        <div class="blog-post">
-            <h3>Premio al Mejor Servicio</h3>
-            <p>Recibimos un reconocimiento por nuestro excelente servicio al cliente.</p>
-        </div>
-    </section>
 
     <!-- Pie de página con información de derechos de autor -->
     <footer>
@@ -166,5 +141,6 @@
 
     <!-- Incluyendo el archivo JavaScript -->
     <script src="js/scripts.js"></script>
+    <script src="js/slider.js"></script>
 </body>
 </html>
