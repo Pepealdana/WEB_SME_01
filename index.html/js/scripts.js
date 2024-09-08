@@ -24,40 +24,33 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
 // sección información
 document.addEventListener('DOMContentLoaded', () => {
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slider-item');
-    const totalSlides = slides.length;
-    
+    const nextButton = document.querySelector('.next');
+    const prevButton = document.querySelector('.prev');
+
     function showSlide(index) {
-        // Ajustamos el índice al rango adecuado
-        if (index >= totalSlides) {
-            currentSlide = 0;
-        } else if (index < 0) {
-            currentSlide = totalSlides - 1;
-        } else {
-            currentSlide = index;
-        }
-    
-        // Ocultamos todos los slides
-        slides.forEach((slide) => {
-            slide.style.display = 'none';
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
         });
-    
-        // Mostramos solo el slide actual
-        slides[currentSlide].style.display = 'flex';
     }
-    
-    // Agregamos los eventos de clic para las flechas
-    document.querySelector('.slider-prev').addEventListener('click', () => {
-        showSlide(currentSlide - 1);
-    });
-    
-    document.querySelector('.slider-next').addEventListener('click', () => {
-        showSlide(currentSlide + 1);
-    });
-    
-    // Mostrar el primer slide al cargar la página
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    nextButton.addEventListener('click', nextSlide);
+    prevButton.addEventListener('click', prevSlide);
+
+    // Mostrar la primera diapositiva
     showSlide(currentSlide);
 });
