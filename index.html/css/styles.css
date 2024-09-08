@@ -10,7 +10,7 @@ body {
 
 /* Estilos del logotipo */
 .logo img {
-    width: 50px;
+    width: 350px;
     height: auto;
     display: block;
     margin-left: 20px; /* Ajusta este valor para separar el logo del borde izquierdo */
@@ -334,79 +334,97 @@ body {
 }
 }
 
-/* Estilos para la sección de información */
-#info-slider {
-    background-color: #f4f4f4;
-    padding: 40px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.info-slider-container {
-    display: flex;
-    overflow: hidden;
-    width: 100%;
-    max-width: 1200px; /* Mantiene el ancho máximo */
+/* Slider container NUestra Historia */
+.info-slider {
     position: relative;
-    align-items: center;
-    justify-content: center;
-}
-
-.slider-item {
-    display: flex;
-    align-items: center;
-    width: 100%; /* Solo un slide a la vez */
     max-width: 100%;
-    transition: transform 0.5s ease;
+    height: 350px;
+    margin: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .slider-container {
+    display: flex;
+    width: 80%;
+    height: 100%;
     position: relative;
-    justify-content: center; /* Centrar contenido */
+  }
+  
+  .slider-item {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
 }
 
-.slider-image {
-    width: 45%; /* La imagen ocupa un 45% del espacio */
-    height: auto; 
-    max-height: 400px; /* Mantiene el tamaño de la imagen */
+.slider-item.active {
+    opacity: 1;
+    visibility: visible;
+}
+  
+  .slider-item img {
+    width: 50%;
+    height: 100%;
     object-fit: cover;
-}
+  }
+  
+  .slider-content {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* sombra alrededor de la caja */
+    border: 2px solid #ccc; /* borde sutil */
+    padding: 20px; /* espacio dentro de la caja */
+    background-color: white; /* color de fondo */
+    border-radius: 20px; /* esquinas redondeadas */
+  }
 
-.slider-text {
-    padding: 20px;
-    background-color: #B8D9F2; /* Color azul claro */
-    margin-left: 20px;
-    flex-grow: 1; /* Expande la caja de texto */
-    max-width: 50%; /* La caja de texto ocupará un 50% */
-    box-sizing: border-box;
+  .info-box {
+    width: 50%;
+    background-color: #f4f6f7;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Alinea el texto verticalmente */
-}
-
-.slider-text h2 {
-    margin-top: 0;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .info-box h2 {
+    margin-bottom: 15px;
+    font-size: 28px;
     color: #01142d;
-    font-size: 1.8em; /* Ajustar el tamaño del título */
-}
-
-.slider-text p {
-    margin-bottom: 0;
-    color: #333;
-    font-size: 1.2em; /* Ajustar el tamaño del párrafo */
-}
-
-/* Estilos para las flechas de navegación */
-.slider-navigation {
+  }
+  
+  .info-box p {
+    font-size: 16px;
+    color: #01142d;
+  }
+  
+  button.prev, button.next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 20px;
-}
-
-.slider-navigation span {
-    font-size: 24px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
     cursor: pointer;
-    user-select: none;
-}
+    font-size: 18px;
+  }
+  
+  button.prev {
+    left: 10px;
+  }
+  
+  button.next {
+    right: 10px;
+  }
+  
+  button.prev:hover, button.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
